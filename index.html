@@ -1,43 +1,1690 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Welcome</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="BAREFOLK - Everyday clothing for real people. Wear your story.">
+
+    <title>BAREFOLK | Wear Your Story</title>
+
     <style>
-        body {
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+        :root {
+            --dark: #17231d;
+            --dark2: #24342c;
+            --cream: #f5f1e8;
+            --white: #fffdf8;
+            --text: #202720;
+            --muted: #70766f;
+            --line: #ddd8ca;
+            --gold: #c7a66b;
+        }
+
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", Arial, sans-serif;
+            background: var(--white);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =========================
+           TOP ANNOUNCEMENT
+        ========================= */
+
+        .announcement {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 253, 248, 0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav {
+            max-width: 1250px;
+            height: 78px;
+            margin: auto;
+            padding: 0 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--dark);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: white;
+            font-family: Georgia, serif;
+            font-size: 18px;
+        }
+
+        .logo-text {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 5px;
+        }
+
+        .logo-sub {
+            display: block;
+            font-size: 8px;
+            letter-spacing: 4px;
+            margin-top: -3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 18px;
+            font-size: 20px;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 680px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: var(--cream);
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            padding: 80px;
+        }
+
+        .eyebrow {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(55px, 7vw, 100px);
+            line-height: 0.95;
+            font-weight: 600;
+        }
+
+        .hero-description {
+            max-width: 520px;
+            margin: 30px 0;
+            color: var(--muted);
+            font-size: 17px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 26px;
+            border: 1px solid var(--dark);
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-dark {
+            background: var(--dark);
+            color: white;
+        }
+
+        .btn-dark:hover {
+            background: var(--dark2);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline:hover {
+            background: var(--dark);
+            color: white;
+        }
+
+        /* Hero visual */
+
+        .hero-image {
+            position: relative;
+            min-height: 680px;
+
+            background:
+                linear-gradient(
+                    rgba(20, 40, 32, 0.15),
+                    rgba(20, 40, 32, 0.35)
+                ),
+                linear-gradient(
+                    135deg,
+                    #788575,
+                    #34473d
+                );
+
+            overflow: hidden;
+
             display: flex;
             justify-content: center;
+            align-items: flex-end;
+        }
+
+        .hero-model {
+            width: 62%;
+            height: 80%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #c1c1a8,
+                    #676f60
+                );
+
+            border-radius: 50% 50% 0 0;
+
+            position: relative;
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,.25);
+        }
+
+        .hero-model::after {
+            content: "BAREFOLK";
+
+            position: absolute;
+
+            top: 45%;
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+
+            color: white;
+
+            letter-spacing: 5px;
+            font-size: 13px;
+        }
+
+        .hero-script {
+            position: absolute;
+            top: 80px;
+            right: 60px;
+
+            color: white;
+
+            font-family: Georgia, serif;
+            font-size: 32px;
+            font-style: italic;
+
+            transform: rotate(-8deg);
+        }
+
+        /* =========================
+           GENERAL SECTION
+        ========================= */
+
+        section {
+            max-width: 1250px;
+            margin: auto;
+            padding: 100px 25px;
+        }
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            margin-bottom: 40px;
+            gap: 20px;
+        }
+
+        .section-heading h2 {
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: 52px;
+            line-height: 1;
+        }
+
+        .section-heading p {
+            max-width: 450px;
+            color: var(--muted);
+        }
+
+        /* =========================
+           COLLECTIONS
+        ========================= */
+
+        .collections {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .collection {
+            height: 320px;
+            position: relative;
+
+            padding: 25px;
+
+            display: flex;
+            align-items: flex-end;
+
+            color: white;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0,0,0,.65),
+                    transparent 65%
+                ),
+                linear-gradient(
+                    135deg,
+                    #71806d,
+                    #293b33
+                );
+
+            transition: .4s;
+        }
+
+        .collection:nth-child(2) {
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0,0,0,.65),
+                    transparent 65%
+                ),
+                linear-gradient(
+                    135deg,
+                    #b3a69b,
+                    #55544f
+                );
+        }
+
+        .collection:nth-child(3) {
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0,0,0,.65),
+                    transparent 65%
+                ),
+                linear-gradient(
+                    135deg,
+                    #c7b38c,
+                    #706148
+                );
+        }
+
+        .collection:nth-child(4) {
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0,0,0,.65),
+                    transparent 65%
+                ),
+                linear-gradient(
+                    135deg,
+                    #59635e,
+                    #17231d
+                );
+        }
+
+        .collection:hover {
+            transform: translateY(-6px);
+        }
+
+        .collection h3 {
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: 32px;
+        }
+
+        .collection span {
+            font-size: 13px;
+        }
+
+        /* =========================
+           PRODUCTS
+        ========================= */
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .product {
+            position: relative;
+        }
+
+        .product-image {
+            aspect-ratio: 1 / 1.15;
+
+            background: #eee9df;
+
+            display: flex;
             align-items: center;
-            height: 100vh;
-            background: #f5f5f5;
-            text-align: center;
+            justify-content: center;
+
+            overflow: hidden;
         }
 
-        .container {
+        .product-tag {
+            position: absolute;
+
+            top: 12px;
+            left: 12px;
+
             background: white;
-            padding: 50px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+
+            padding: 6px 10px;
+
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+
+            z-index: 2;
         }
 
-        h1 {
-            color: #222;
+        /* Clothing mockups */
+
+        .shirt {
+            width: 55%;
+            height: 62%;
+
+            background: #202622;
+
+            border-radius: 18px 18px 8px 8px;
+
+            position: relative;
+
+            box-shadow: 0 20px 30px rgba(0,0,0,.12);
         }
 
-        p {
-            color: #666;
+        .shirt::before,
+        .shirt::after {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            width: 45%;
+            height: 35%;
+
+            background: inherit;
+        }
+
+        .shirt::before {
+            left: -24%;
+            transform: skewY(25deg);
+            border-radius: 12px;
+        }
+
+        .shirt::after {
+            right: -24%;
+            transform: skewY(-25deg);
+            border-radius: 12px;
+        }
+
+        .shirt-logo {
+            position: absolute;
+
+            top: 43%;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            color: white;
+
+            font-size: 8px;
+            letter-spacing: 2px;
+
+            white-space: nowrap;
+        }
+
+        .product:nth-child(2) .shirt {
+            background: #d3c4a9;
+            height: 67%;
+        }
+
+        .product:nth-child(2) .shirt-logo {
+            color: #27332c;
+        }
+
+        .product:nth-child(3) .shirt {
+            background: #69735e;
+        }
+
+        .product:nth-child(4) .shirt {
+            background: #151817;
+
+            height: 45%;
+            width: 68%;
+
+            border-radius: 50%;
+
+            clip-path: polygon(
+                12% 32%,
+                50% 0,
+                88% 32%,
+                78% 100%,
+                22% 100%
+            );
+        }
+
+        .product-info {
+            padding: 15px 2px;
+        }
+
+        .product-name {
+            font-weight: 600;
+        }
+
+        .price {
+            color: var(--muted);
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        /* =========================
+           BRAND STORY
+        ========================= */
+
+        .story {
+            max-width: none;
+
+            background: var(--dark);
+            color: white;
+
+            padding: 0;
+        }
+
+        .story-inner {
+            max-width: 1250px;
+
+            margin: auto;
+
+            padding: 110px 25px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 80px;
+
+            align-items: center;
+        }
+
+        .story h2 {
+            font-family: "Playfair Display", Georgia, serif;
+
+            font-size: 65px;
+
+            line-height: 1;
+        }
+
+        .story p {
+            color: #c2cbc5;
+
+            max-width: 550px;
+
+            margin: 25px 0;
+
+            line-height: 1.8;
+        }
+
+        .story-box {
+            min-height: 380px;
+
+            border: 1px solid #647068;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #35483f,
+                    #18241f
+                );
+        }
+
+        .story-box strong {
+            font-family: "Playfair Display", Georgia, serif;
+
+            font-size: 60px;
+
+            line-height: 1;
+        }
+
+        /* =========================
+           BENEFITS
+        ========================= */
+
+        .benefits {
+            max-width: none;
+
+            background: var(--cream);
+
+            padding: 55px 25px;
+        }
+
+        .benefit-grid {
+            max-width: 1250px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .benefit {
+            text-align: center;
+
+            padding: 15px 25px;
+
+            border-right: 1px solid var(--line);
+        }
+
+        .benefit:last-child {
+            border-right: none;
+        }
+
+        .benefit-icon {
+            font-size: 27px;
+
+            margin-bottom: 10px;
+        }
+
+        .benefit strong {
+            display: block;
+
+            margin-bottom: 5px;
+        }
+
+        .benefit span {
+            font-size: 13px;
+
+            color: var(--muted);
+        }
+
+        /* =========================
+           NEWSLETTER
+        ========================= */
+
+        .newsletter {
+            max-width: none;
+
+            text-align: center;
+
+            background: #e9e1d0;
+
+            padding: 100px 25px;
+        }
+
+        .newsletter h2 {
+            font-family: "Playfair Display", Georgia, serif;
+
+            font-size: 55px;
+        }
+
+        .newsletter p {
+            color: var(--muted);
+
+            max-width: 550px;
+
+            margin: 18px auto 30px;
+        }
+
+        .newsletter-form {
+            max-width: 520px;
+
+            margin: auto;
+
+            display: flex;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+
+            padding: 16px;
+
+            border: 1px solid var(--dark);
+
+            background: white;
+
+            font-family: inherit;
+        }
+
+        .newsletter-form button {
+            padding: 16px 25px;
+
+            background: var(--dark);
+
+            color: white;
+
+            border: 1px solid var(--dark);
+
+            font-weight: 600;
+
+            cursor: pointer;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #101a16;
+
+            color: white;
+
+            padding: 70px 25px 25px;
+        }
+
+        .footer-grid {
+            max-width: 1250px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                1.5fr
+                1fr
+                1fr
+                1.3fr;
+
+            gap: 50px;
+        }
+
+        .footer-brand {
+            font-size: 24px;
+
+            font-weight: 700;
+
+            letter-spacing: 5px;
+        }
+
+        .footer-sub {
+            color: #9ea9a2;
+
+            font-size: 12px;
+
+            letter-spacing: 3px;
+
+            margin-top: 5px;
+        }
+
+        .footer-grid h4 {
+            margin-bottom: 15px;
+        }
+
+        .footer-grid a,
+        .footer-grid p {
+            display: block;
+
+            color: #aeb8b2;
+
+            font-size: 13px;
+
+            line-height: 2;
+        }
+
+        .social {
+            display: flex;
+
+            gap: 15px;
+
+            margin-top: 15px;
+
+            font-size: 20px;
+        }
+
+        .copyright {
+            max-width: 1250px;
+
+            margin: 50px auto 0;
+
+            padding-top: 20px;
+
+            border-top: 1px solid #34413b;
+
+            color: #7f8a83;
+
+            font-size: 12px;
+
+            display: flex;
+
+            justify-content: space-between;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        .mobile-menu {
+            display: none;
+        }
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+
+                font-size: 22px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content {
+                padding: 70px 25px;
+            }
+
+            .hero-image {
+                min-height: 500px;
+            }
+
+            .collections,
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .story-inner {
+                grid-template-columns: 1fr;
+
+                gap: 45px;
+            }
+
+            .benefit-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .benefit {
+                border-right: none;
+                border-bottom: 1px solid var(--line);
+                padding: 25px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .announcement {
+                font-size: 9px;
+            }
+
+            .logo-text {
+                font-size: 15px;
+            }
+
+            .logo-circle {
+                width: 40px;
+                height: 40px;
+            }
+
+            .hero h1 {
+                font-size: 58px;
+            }
+
+            .hero-image {
+                min-height: 430px;
+            }
+
+            .hero-script {
+                right: 25px;
+                top: 45px;
+                font-size: 23px;
+            }
+
+            section {
+                padding: 70px 18px;
+            }
+
+            .section-heading {
+                display: block;
+            }
+
+            .section-heading h2 {
+                font-size: 40px;
+                margin-bottom: 15px;
+            }
+
+            .collections,
+            .products {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .collection {
+                height: 230px;
+                padding: 18px;
+            }
+
+            .collection h3 {
+                font-size: 25px;
+            }
+
+            .story-inner {
+                padding: 75px 20px;
+            }
+
+            .story h2 {
+                font-size: 48px;
+            }
+
+            .story-box {
+                min-height: 300px;
+            }
+
+            .story-box strong {
+                font-size: 45px;
+            }
+
+            .benefit-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .newsletter {
+                padding: 70px 18px;
+            }
+
+            .newsletter h2 {
+                font-size: 40px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .newsletter-form input,
+            .newsletter-form button {
+                width: 100%;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .copyright {
+                display: block;
+            }
+
+            .copyright span {
+                display: block;
+                margin-bottom: 8px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<div class="container">
-    <h1>Welcome to My Website</h1>
-    <p>This website is under construction.</p>
-</div>
+    <!-- =========================
+         ANNOUNCEMENT
+    ========================== -->
+
+    <div class="announcement">
+        BAREFOLK — WEAR YOUR STORY
+    </div>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header>
+
+        <nav class="nav">
+
+            <a href="#home" class="logo">
+
+                <div class="logo-circle">
+                    BF
+                </div>
+
+                <div>
+                    <div class="logo-text">
+                        BAREFOLK
+                    </div>
+
+                    <span class="logo-sub">
+                        WEAR YOUR STORY
+                    </span>
+                </div>
+
+            </a>
+
+
+            <div class="nav-links">
+
+                <a href="#home">Home</a>
+
+                <a href="#collections">Collections</a>
+
+                <a href="#shop">Shop</a>
+
+                <a href="#story">Our Story</a>
+
+                <a href="#contact">Contact</a>
+
+            </div>
+
+
+            <div class="nav-icons">
+
+                <span>⌕</span>
+
+                <span>🛍</span>
+
+                <span class="mobile-menu">
+                    ☰
+                </span>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <main id="home">
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div>
+
+                    <div class="eyebrow">
+                        BAREFOLK / NEW COLLECTION
+                    </div>
+
+                    <h1>
+                        More Than<br>
+                        Clothes.
+                    </h1>
+
+                    <p class="hero-description">
+                        Everyday pieces designed for real people,
+                        quiet confidence and stories worth wearing.
+                    </p>
+
+                    <div class="buttons">
+
+                        <a href="#shop" class="btn btn-dark">
+                            Shop Collection →
+                        </a>
+
+                        <a href="#story" class="btn btn-outline">
+                            Discover Barefolk
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-image">
+
+                <div class="hero-script">
+                    Wear<br>
+                    Your<br>
+                    Story
+                </div>
+
+                <div class="hero-model"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             COLLECTIONS
+        ========================== -->
+
+        <section id="collections">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <div class="eyebrow">
+                        EXPLORE
+                    </div>
+
+                    <h2>
+                        Find Your Fit
+                    </h2>
+
+                </div>
+
+                <p>
+                    Simple categories, versatile pieces and
+                    an understated look that works every day.
+                </p>
+
+            </div>
+
+
+            <div class="collections">
+
+                <a href="#shop" class="collection">
+
+                    <div>
+                        <h3>Men</h3>
+                        <span>Shop Now →</span>
+                    </div>
+
+                </a>
+
+
+                <a href="#shop" class="collection">
+
+                    <div>
+                        <h3>Women</h3>
+                        <span>Shop Now →</span>
+                    </div>
+
+                </a>
+
+
+                <a href="#shop" class="collection">
+
+                    <div>
+                        <h3>Essentials</h3>
+                        <span>Shop Now →</span>
+                    </div>
+
+                </a>
+
+
+                <a href="#shop" class="collection">
+
+                    <div>
+                        <h3>Accessories</h3>
+                        <span>Shop Now →</span>
+                    </div>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PRODUCTS
+        ========================== -->
+
+        <section id="shop">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <div class="eyebrow">
+                        THE EDIT
+                    </div>
+
+                    <h2>
+                        Featured Pieces
+                    </h2>
+
+                </div>
+
+                <a href="#contact" class="btn btn-outline">
+                    View All →
+                </a>
+
+            </div>
+
+
+            <div class="products">
+
+
+                <!-- PRODUCT 1 -->
+
+                <article class="product">
+
+                    <div class="product-image">
+
+                        <span class="product-tag">
+                            Best Seller
+                        </span>
+
+                        <div class="shirt">
+
+                            <span class="shirt-logo">
+                                BAREFOLK
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <div class="product-name">
+                            Classic Logo Tee
+                        </div>
+
+                        <div class="price">
+                            ₹799
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PRODUCT 2 -->
+
+                <article class="product">
+
+                    <div class="product-image">
+
+                        <div class="shirt">
+
+                            <span class="shirt-logo">
+                                BAREFOLK
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <div class="product-name">
+                            Everyday Hoodie
+                        </div>
+
+                        <div class="price">
+                            ₹1,299
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PRODUCT 3 -->
+
+                <article class="product">
+
+                    <div class="product-image">
+
+                        <span class="product-tag">
+                            New
+                        </span>
+
+                        <div class="shirt">
+
+                            <span class="shirt-logo">
+                                BAREFOLK
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <div class="product-name">
+                            Oversized Tee
+                        </div>
+
+                        <div class="price">
+                            ₹899
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PRODUCT 4 -->
+
+                <article class="product">
+
+                    <div class="product-image">
+
+                        <div class="shirt">
+
+                            <span class="shirt-logo">
+                                BAREFOLK
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <div class="product-name">
+                            Signature Cap
+                        </div>
+
+                        <div class="price">
+                            ₹499
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             BRAND STORY
+        ========================== -->
+
+        <div class="story" id="story">
+
+            <div class="story-inner">
+
+                <div>
+
+                    <div class="eyebrow">
+                        OUR PHILOSOPHY
+                    </div>
+
+                    <h2>
+                        Wear what feels like you.
+                    </h2>
+
+                    <p>
+                        BAREFOLK is built around uncomplicated
+                        clothing with character. We believe great
+                        style does not need to shout.
+                    </p>
+
+                    <p>
+                        It should feel natural, comfortable
+                        and completely yours.
+                    </p>
+
+                    <a href="#contact"
+                       class="btn btn-outline"
+                       style="border-color:white;color:white">
+
+                        Discover Our Story →
+
+                    </a>
+
+                </div>
+
+
+                <div class="story-box">
+
+                    <strong>
+                        WEAR<br>
+                        YOUR<br>
+                        STORY
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             BENEFITS
+        ========================== -->
+
+        <div class="benefits">
+
+            <div class="benefit-grid">
+
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        ◇
+                    </div>
+
+                    <strong>
+                        Premium Quality
+                    </strong>
+
+                    <span>
+                        Thoughtful materials
+                        and clean finishing.
+                    </span>
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        ◇
+                    </div>
+
+                    <strong>
+                        Fast Delivery
+                    </strong>
+
+                    <span>
+                        Reliable delivery
+                        across India.
+                    </span>
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        ♢
+                    </div>
+
+                    <strong>
+                        Secure Payments
+                    </strong>
+
+                    <span>
+                        Safe and trusted
+                        checkout.
+                    </span>
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        ♡
+                    </div>
+
+                    <strong>
+                        Made For People
+                    </strong>
+
+                    <span>
+                        Everyday style
+                        without the noise.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             NEWSLETTER
+        ========================== -->
+
+        <div class="newsletter" id="contact">
+
+            <div class="eyebrow">
+                STAY IN THE LOOP
+            </div>
+
+            <h2>
+                Join the Barefolk Circle.
+            </h2>
+
+            <p>
+                Get new-drop announcements, style notes
+                and occasional offers straight to your inbox.
+            </p>
+
+
+            <form class="newsletter-form"
+                  onsubmit="subscribeUser(event)">
+
+                <input
+                    type="email"
+                    placeholder="Your email address"
+                    required
+                >
+
+                <button type="submit">
+                    Subscribe
+                </button>
+
+            </form>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="footer-grid">
+
+
+            <div>
+
+                <div class="footer-brand">
+                    BAREFOLK
+                </div>
+
+                <div class="footer-sub">
+                    WEAR YOUR STORY
+                </div>
+
+                <p style="margin-top:20px;">
+                    Everyday clothing for
+                    real people.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Explore
+                </h4>
+
+                <a href="#home">
+                    Home
+                </a>
+
+                <a href="#shop">
+                    Shop
+                </a>
+
+                <a href="#collections">
+                    Collections
+                </a>
+
+                <a href="#story">
+                    Our Story
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Customer Care
+                </h4>
+
+                <a href="#contact">
+                    Contact
+                </a>
+
+                <a href="#contact">
+                    Shipping & Delivery
+                </a>
+
+                <a href="#contact">
+                    Returns
+                </a>
+
+                <a href="#contact">
+                    Size Guide
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Stay Connected
+                </h4>
+
+                <p>
+                    Follow BAREFOLK for
+                    new drops and updates.
+                </p>
+
+                <div class="social">
+
+                    <a href="#" aria-label="Instagram">
+                        ◎
+                    </a>
+
+                    <a href="#" aria-label="WhatsApp">
+                        ◉
+                    </a>
+
+                    <a href="mailto:hello@barefolk.in"
+                       aria-label="Email">
+                        ✉
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            <span>
+                © 2026 BAREFOLK. All rights reserved.
+            </span>
+
+            <span>
+                Wear Your Story.
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        function subscribeUser(event) {
+
+            event.preventDefault();
+
+            alert(
+                "Thank you for joining BAREFOLK!"
+            );
+
+        }
+
+    </script>
 
 </body>
+
 </html>
